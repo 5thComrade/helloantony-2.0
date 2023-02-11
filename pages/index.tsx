@@ -1,7 +1,4 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -12,8 +9,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={inter.className}>
-        <h1 className="text-rose-500">Hello Antony</h1>
+      <main className="max-w-7xl mx-auto">
+        <h1 className="transition duration-1000 text-red-500 text-3xl dark:text-amber-500">
+          Hello Antony
+        </h1>
       </main>
     </>
   );
