@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { motion, Variants } from "framer-motion";
 import { Divide as Hamburger } from "hamburger-react";
 import useDarkTheme from "../store/useDarkTheme.store";
@@ -26,6 +27,9 @@ const navItem: Variants = {
 function Navbar() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const { darkTheme, setDarkTheme } = useDarkTheme((state) => state);
+
+  const router = useRouter();
+  console.log("router: ", router);
 
   return (
     <div className="relative">
@@ -123,31 +127,47 @@ function Navbar() {
               <Link href="/" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
-                  className="font-light text-4xl text-white dark:text-black"
+                  className={`${
+                    router.asPath === "/"
+                      ? "border-b-2 border-white dark:border-black"
+                      : ""
+                  } inline-block font-light text-4xl text-white dark:text-black`}
                 >
                   Home
                 </motion.li>
               </Link>
-              <Link href="/" onClick={() => setSidebarOpen(false)}>
+              <Link href="/about" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
-                  className="font-light text-4xl text-white dark:text-black"
+                  className={`${
+                    router.asPath === "/about"
+                      ? "border-b-2 border-white dark:border-black"
+                      : ""
+                  } inline-block font-light text-4xl text-white dark:text-black`}
                 >
                   About
                 </motion.li>
               </Link>
-              <Link href="/" onClick={() => setSidebarOpen(false)}>
+              <Link href="/work" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
-                  className="font-light text-4xl text-white dark:text-black"
+                  className={`${
+                    router.asPath === "/work"
+                      ? "border-b-2 border-white dark:border-black"
+                      : ""
+                  } inline-block font-light text-4xl text-white dark:text-black`}
                 >
                   Work
                 </motion.li>
               </Link>
-              <Link href="/" onClick={() => setSidebarOpen(false)}>
+              <Link href="/contact" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
-                  className="font-light text-4xl text-white dark:text-black"
+                  className={`${
+                    router.asPath === "/contact"
+                      ? "border-b-2 border-white dark:border-black"
+                      : ""
+                  } inline-block font-light text-4xl text-white dark:text-black`}
                 >
                   Contact
                 </motion.li>
