@@ -12,7 +12,7 @@ const variants: Variants = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      duration: 1.5,
+      duration: 1.2,
       staggerChildren: 0.3,
     },
   },
@@ -30,13 +30,45 @@ function Navbar() {
   return (
     <div className="relative">
       <nav className="max-w-7xl mx-auto px-6 py-7 flex items-center justify-between">
-        <h1 className="font-semibold transition duration-1000 text-black dark:text-white">
-          Antony{" "}
-          <span className="transition duration-1000 text-red-500 dark:text-amber-500">
-            Chiramel
-          </span>
-        </h1>
-        <div className="md:hidden">
+        <motion.div
+          initial={{
+            x: -500,
+            opacity: 0,
+            scale: 0.5,
+          }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            scale: 1,
+          }}
+          transition={{
+            duration: 1.5,
+          }}
+        >
+          <h1 className="font-semibold transition duration-1000 text-black dark:text-white">
+            Antony{" "}
+            <span className="transition duration-1000 text-red-500 dark:text-amber-500">
+              Chiramel
+            </span>
+          </h1>
+        </motion.div>
+
+        <motion.div
+          initial={{
+            x: 500,
+            opacity: 0,
+            scale: 0.5,
+          }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            scale: 1,
+          }}
+          transition={{
+            duration: 1.5,
+          }}
+          className="md:hidden"
+        >
           <Hamburger
             toggled={isSidebarOpen}
             toggle={setSidebarOpen}
@@ -44,7 +76,7 @@ function Navbar() {
             color={darkTheme ? "#ffffff" : "#000000"}
             duration={0.8}
           />
-        </div>
+        </motion.div>
       </nav>
 
       {isSidebarOpen && (
@@ -61,7 +93,7 @@ function Navbar() {
             stiffness: 1000,
             damping: 1000,
           }}
-          className="absolute left-0 right-0 top-0 transition duration-1000 bg-white dark:bg-black"
+          className="absolute left-0 right-0 top-0 transition duration-1000 bg-red-500 dark:bg-amber-500"
         >
           <motion.div
             variants={variants}
@@ -72,7 +104,7 @@ function Navbar() {
             <nav className="max-w-7xl mx-auto px-6 py-7 flex items-center justify-between">
               <h1 className="font-semibold transition duration-1000 text-black dark:text-white">
                 Antony{" "}
-                <span className="transition duration-1000 text-red-500 dark:text-amber-500">
+                <span className="transition duration-1000 text-white dark:text-black">
                   Chiramel
                 </span>
               </h1>
@@ -82,7 +114,7 @@ function Navbar() {
                   toggled={isSidebarOpen}
                   toggle={setSidebarOpen}
                   label="Show menu"
-                  color={darkTheme ? "#ffffff" : "#000000"}
+                  color={darkTheme ? "#000000" : "#ffffff"}
                   duration={0.8}
                 />
               </div>
@@ -91,7 +123,7 @@ function Navbar() {
               <Link href="/" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
-                  className="font-light text-4xl text-black dark:text-white dark:px-4"
+                  className="font-light text-4xl text-white dark:text-black"
                 >
                   Home
                 </motion.li>
@@ -99,7 +131,7 @@ function Navbar() {
               <Link href="/" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
-                  className="font-light text-4xl text-black dark:text-white dark:px-4"
+                  className="font-light text-4xl text-white dark:text-black"
                 >
                   About
                 </motion.li>
@@ -107,7 +139,7 @@ function Navbar() {
               <Link href="/" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
-                  className="font-light text-4xl text-black dark:text-white dark:px-4"
+                  className="font-light text-4xl text-white dark:text-black"
                 >
                   Work
                 </motion.li>
@@ -115,31 +147,47 @@ function Navbar() {
               <Link href="/" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
-                  className="font-light text-4xl text-black dark:text-white dark:px-4"
+                  className="font-light text-4xl text-white dark:text-black"
                 >
                   Contact
                 </motion.li>
               </Link>
-              <motion.div
-                variants={navItem}
-                className="flex gap-8 items-center"
-              >
-                <button
-                  className={`${
-                    !darkTheme ? "bg-red-500 text-white" : "text-white"
-                  } px-4 py-3 rounded-xl font-light text-2xl`}
-                  onClick={() => setDarkTheme(false)}
-                >
-                  Light
-                </button>
-                <button
-                  className={`${
-                    darkTheme ? "bg-amber-500 text-black" : "text-black"
-                  } px-4 py-3 rounded-xl font-light text-2xl`}
-                  onClick={() => setDarkTheme(true)}
-                >
-                  Dark
-                </button>
+              <motion.div variants={navItem}>
+                {darkTheme ? (
+                  <button
+                    className="flex items-center gap-3 font-light text-4xl text-white dark:text-black"
+                    onClick={() => setDarkTheme(false)}
+                  >
+                    <span>Light</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-7 h-7 mt-1"
+                    >
+                      <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+                    </svg>
+                  </button>
+                ) : (
+                  <button
+                    className="flex items-center gap-3 font-light text-4xl text-white dark:text-black"
+                    onClick={() => setDarkTheme(true)}
+                  >
+                    <span>Dark</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-7 h-7 mt-1"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                )}
               </motion.div>
             </ul>
           </motion.div>
