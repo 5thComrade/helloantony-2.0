@@ -31,7 +31,7 @@ function Navbar() {
   const router = useRouter();
 
   return (
-    <div className="relative z-50">
+    <div className="fixed top-0 left-0 right-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 py-7 flex items-center justify-between">
         <motion.div
           initial={{

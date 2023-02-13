@@ -15,11 +15,13 @@ function Contact() {
         animate={{ y: "0%", opacity: 1 }}
         transition={{ duration: 0.75, ease: "easeOut" }}
         exit={{ y: "-100%", opacity: 0 }}
-        className="max-w-7xl mx-auto"
+        className="max-w-7xl mx-auto min-h-screen px-6 py-7"
       >
-        <h1 className="transition duration-1000 text-red-500 text-3xl dark:text-amber-500">
-          Contact
-        </h1>
+        <div className="mt-20">
+          <h1 className="transition duration-1000 text-red-500 text-3xl dark:text-amber-500">
+            Contact
+          </h1>
+        </div>
       </motion.main>
     </>
   );
