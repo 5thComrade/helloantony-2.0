@@ -31,7 +31,7 @@ function Home() {
         exit={{ y: "-100%", opacity: 0 }}
         className="max-w-7xl mx-auto px-6 py-7"
       >
-        <div className="mt-20 max-w-xl xl:max-w-3xl">
+        <div className="mt-16 max-w-xl xl:max-w-3xl">
           <h1 className="transition duration-1000 text-red-500 text-5xl md:text-6xl xl:text-7xl dark:text-amber-500">
             Hello.
           </h1>
