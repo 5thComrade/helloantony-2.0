@@ -29,9 +29,9 @@ function Home() {
         animate={{ y: "0%", opacity: 1 }}
         transition={{ duration: 0.75, ease: "easeOut" }}
         exit={{ y: "-100%", opacity: 0 }}
-        className="max-w-7xl mx-auto px-6 py-7"
+        className="max-w-7xl mx-auto min-h-screen px-6 py-7 flex flex-col items-start justify-center"
       >
-        <div className="mt-16 max-w-xl xl:max-w-3xl">
+        <div className="max-w-xl xl:max-w-3xl">
           <h1 className="transition duration-1000 text-red-500 text-5xl md:text-6xl xl:text-7xl dark:text-amber-500">
             Hello.
           </h1>
