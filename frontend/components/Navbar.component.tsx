@@ -30,6 +30,18 @@ function Navbar() {
 
   const router = useRouter();
 
+  const handleThemeChange = (theme: 'dark' | 'light') => {
+    if (theme === 'dark') {
+      setDarkTheme(true);
+      localStorage.setItem("theme", theme);
+    } else if (theme === 'light') {
+      setDarkTheme(false);
+      localStorage.setItem("theme", theme);
+    } else {
+      return;
+    }
+  }
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 py-7 flex items-center justify-between">
@@ -145,7 +157,7 @@ function Navbar() {
             {darkTheme ? (
               <button
                 className="flex items-center gap-1 text-black dark:text-white"
-                onClick={() => setDarkTheme(false)}
+                onClick={() => handleThemeChange("light")}
               >
                 <span>Light</span>
                 <svg
@@ -160,7 +172,7 @@ function Navbar() {
             ) : (
               <button
                 className="flex items-center gap-1 text-black dark:text-white"
-                onClick={() => setDarkTheme(true)}
+                onClick={() => handleThemeChange("dark")}
               >
                 <span>Dark</span>
                 <svg
@@ -274,7 +286,7 @@ function Navbar() {
                 {darkTheme ? (
                   <button
                     className="flex items-center gap-3 font-light text-4xl text-white dark:text-black"
-                    onClick={() => setDarkTheme(false)}
+                    onClick={() => handleThemeChange("light")}
                   >
                     <span>Light</span>
                     <svg
@@ -289,7 +301,7 @@ function Navbar() {
                 ) : (
                   <button
                     className="flex items-center gap-3 font-light text-4xl text-white dark:text-black"
-                    onClick={() => setDarkTheme(true)}
+                    onClick={() => handleThemeChange('dark')}
                   >
                     <span>Dark</span>
                     <svg
