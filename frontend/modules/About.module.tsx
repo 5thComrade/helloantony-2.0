@@ -21,11 +21,6 @@ function About() {
           <h1 className="transition duration-1000 text-red-500 text-3xl dark:text-amber-500">
             About
           </h1>
-          <div className="h-80 w-full bg-red-100"></div>
-          <div className="h-80 w-full bg-red-200"></div>
-          <div className="h-80 w-full bg-red-300"></div>
-          <div className="h-80 w-full bg-red-400"></div>
-          <div className="h-80 w-full bg-red-600"></div>
         </div>
       </motion.main>
     </>

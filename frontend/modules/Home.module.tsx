@@ -46,9 +46,15 @@ function Home() {
             </span>
           </h1>
         </div>
-        <button className="transition duration-1000 mt-10 border rounded px-4 py-3 border-black text-black dark:border-white dark:text-white">
+        <a
+          href="https://cdn.jsdelivr.net/gh/5thComrade/assets_jsdelivr/resume/Antony_Chiramel.pdf"
+          download
+          target="_blank"
+          rel="noreferrer"
+          className="transition duration-1000 mt-10 border rounded px-4 py-3 border-black text-black dark:border-white dark:text-white"
+        >
           Download resume
-        </button>
+        </a>
       </motion.main>
     </>
   );
