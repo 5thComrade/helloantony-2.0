@@ -1,10 +1,11 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import { useEffect } from "react";
+import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import useDarkTheme from "@/frontend/store/useDarkTheme.store";
 import Navbar from "@/frontend/components/Navbar.component";
 import Footer from "@/frontend/components/Footer.component";
 import { Roboto_Mono } from "@next/font/google";
+import "@/styles/globals.css";
 
 const roboto_mono = Roboto_Mono({
   weight: ["300", "400", "600"],
@@ -12,7 +13,20 @@ const roboto_mono = Roboto_Mono({
 });
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  const isDarkTheme = useDarkTheme((state) => state.darkTheme);
+  const { darkTheme: isDarkTheme, setDarkTheme } = useDarkTheme(
+    (state) => state
+  );
+
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme && theme === "dark") {
+      setDarkTheme(true);
+    } else if (theme && theme === "light") {
+      setDarkTheme(false);
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  }, []);
 
   return (
     <main className={isDarkTheme ? "dark" : ""}>
