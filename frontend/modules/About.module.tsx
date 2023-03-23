@@ -1,7 +1,21 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
+import { TagCloud, TagCloudOptions } from "@frank-mayer/react-tag-cloud";
+import useDarkTheme from "../store/useDarkTheme.store";
 
 function About() {
+  const { darkTheme } = useDarkTheme((state) => state);
+
+  const generateTagCloudRadius = (windowWidth: number) => {
+    if (windowWidth < 500) {
+      return 150;
+    } else if (windowWidth >= 500 && windowWidth < 900) {
+      return 200;
+    } else {
+      return 250;
+    }
+  };
+
   return (
     <>
       <Head>
@@ -22,6 +36,42 @@ function About() {
             About
           </h1>
         </div>
+
+        <TagCloud
+          options={(w: Window & typeof globalThis): TagCloudOptions => ({
+            // radius: Math.min(500, w.innerWidth, w.innerHeight) / 2,
+            radius: generateTagCloudRadius(w.innerWidth),
+            maxSpeed: "normal",
+            containerClass: "m-auto",
+            itemClass: darkTheme
+              ? "text-white text-xs md:text-base hover:text-amber-500"
+              : "text-black text-xs md:text-base hover:text-red-500",
+          })}
+          onClickOptions={{ passive: true }}
+        >
+          {[
+            "ReactJS",
+            "TypeScript",
+            "NextJS",
+            "JavaScript",
+            "Git",
+            "DynamoDB",
+            "HTML",
+            "Framer Motion",
+            "CSS",
+            "SASS",
+            "Postman",
+            "VSCode",
+            "AWS Lambda",
+            "NodeJS",
+            "Axios",
+            "React Query",
+            "Zustand",
+            "Recharts",
+            "Zod",
+            "TailwindCSS",
+          ]}
+        </TagCloud>
       </motion.main>
     </>
   );

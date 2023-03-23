@@ -43,7 +43,7 @@ function Navbar() {
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50">
+    <div className="fixed top-0 left-0 right-0 z-50 transition duration-1000 bg-white dark:bg-black">
       <nav className="max-w-7xl mx-auto px-6 py-7 flex items-center justify-between">
         <motion.div
           initial={{
@@ -301,7 +301,7 @@ function Navbar() {
                 ) : (
                   <button
                     className="flex items-center gap-3 font-light text-4xl text-white dark:text-black"
-                    onClick={() => handleThemeChange('dark')}
+                    onClick={() => handleThemeChange("dark")}
                   >
                     <span>Dark</span>
                     <svg
