@@ -12,6 +12,8 @@ const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
 });
 
+const footerVisibleRoutes = ["/", "/contact"];
+
 export default function App({ Component, pageProps, router }: AppProps) {
   const { darkTheme: isDarkTheme, setDarkTheme } = useDarkTheme(
     (state) => state
@@ -40,7 +42,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <AnimatePresence>
           <Component key={router.pathname} {...pageProps} />
         </AnimatePresence>
-        <Footer />
+        {footerVisibleRoutes.includes(router.asPath) && <Footer />}
       </div>
     </main>
   );
