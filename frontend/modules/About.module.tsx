@@ -35,7 +35,7 @@ function About() {
         exit={{ y: "-100%", opacity: 0 }}
         className="max-w-7xl mx-auto min-h-screen px-6 py-7"
       >
-        <div className="mt-10">
+        <div className="mt-12">
           <TagCloud
             options={(w: Window & typeof globalThis): TagCloudOptions => ({
               // radius: Math.min(500, w.innerWidth, w.innerHeight) / 2,
@@ -43,8 +43,8 @@ function About() {
               maxSpeed: "normal",
               containerClass: "m-auto",
               itemClass: darkTheme
-                ? "text-white text-xs md:text-base hover:text-amber-500"
-                : "text-black text-xs md:text-base hover:text-red-500",
+                ? "text-amber-500 text-xs md:text-base hover:text-white"
+                : "text-red-500 text-xs md:text-base hover:text-black",
             })}
             onClickOptions={{ passive: true }}
           >
@@ -72,7 +72,10 @@ function About() {
             ]}
           </TagCloud>
 
-          <p className="font-light transition duration-1000 text-black dark:text-white">
+          <h1 className="font-light text-3xl transition duration-1000 text-black dark:text-white md:text-4xl">
+            About Me
+          </h1>
+          <p className="font-light mt-3 transition duration-1000 text-black dark:text-white">
             {`Hello World! My name is Antony Chiramel and I'm from India. I build solutions using modern web technologies. I'm currently helping Infosys build compelling user interfaces in my capacity as a Senior Associate Consultant.`}
           </p>
           <p className="font-light mt-3 transition duration-1000 text-black dark:text-white">{`I've recently stumbled upon a tech-stack and I'm inclined to call it the LAND stack(Lambda, AWS, NextJS, DynamoDB). So I'm currently busy exploring this tech-stack.`}</p>
