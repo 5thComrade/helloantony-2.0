@@ -78,8 +78,8 @@ function About() {
           <p className="font-light mt-3 transition duration-1000 text-black dark:text-white">
             {`Hello World! My name is Antony Chiramel and I'm from India. I build solutions using modern web technologies. I'm currently helping Infosys build compelling user interfaces in my capacity as a Senior Associate Consultant.`}
           </p>
-          <p className="font-light mt-3 transition duration-1000 text-black dark:text-white">{`I've recently stumbled upon a tech-stack and I'm inclined to call it the LAND stack(Lambda, AWS, NextJS, DynamoDB). So I'm currently busy exploring this tech-stack.`}</p>
-          <p className="font-light mt-3 transition duration-1000 text-black dark:text-white">{`And I'm also fascinated by Minimalism.`}</p>
+          <p className="font-light mt-3 transition duration-1000 text-black dark:text-white">{`I've recently stumbled upon a tech-stack and I'm inclined to call it the LAND stack(Lambda, AWS, NextJS, DynamoDB). It's a serverless tech-stack and I'm currently exploring it.`}</p>
+          <p className="font-light mt-3 transition duration-1000 text-black dark:text-white">{`Minimalism - I've been trying to practice that too.`}</p>
         </div>
       </motion.main>
     </>
