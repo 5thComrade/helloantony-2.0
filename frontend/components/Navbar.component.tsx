@@ -143,7 +143,7 @@ function Navbar() {
                 Work
               </li>
             </Link>
-            <Link href="/contact">
+            {/* <Link href="/contact">
               <li
                 className={`${
                   router.asPath === "/contact"
@@ -153,7 +153,7 @@ function Navbar() {
               >
                 Contact
               </li>
-            </Link>
+            </Link> */}
             {darkTheme ? (
               <button
                 className="flex items-center gap-1 text-black dark:text-white"
@@ -270,7 +270,7 @@ function Navbar() {
                   Work
                 </motion.li>
               </Link>
-              <Link href="/contact" onClick={() => setSidebarOpen(false)}>
+              {/* <Link href="/contact" onClick={() => setSidebarOpen(false)}>
                 <motion.li
                   variants={navItem}
                   className={`${
@@ -281,7 +281,7 @@ function Navbar() {
                 >
                   Contact
                 </motion.li>
-              </Link>
+              </Link> */}
               <motion.div variants={navItem}>
                 {darkTheme ? (
                   <button
